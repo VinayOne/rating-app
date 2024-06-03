@@ -1,3 +1,73 @@
-.mat-tab-group {
-    margin-bottom: 48px;
+.container {
+  background-color: #e4e4e4;
+  padding: 15px;
+}
+
+.mb-3 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0 !important;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0 !important;
+}
+
+.card {
+  border-radius: 0;
+  box-shadow: 0 0 20px #c9c9c9;
+
+  .bottomButton {
+    background-color: #eb6338;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px calc(-.7 * var(--bs-gutter-x)) calc(-.7 * var(--bs-gutter-x));
+    
+    p {
+      color: #ffffff;
+    }
   }
+  .ratingOps > ol > li {
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 30px;
+  }
+
+  .addIcon {
+    position: absolute;
+    right: -10px;
+    top:40%;
+    cursor: pointer;
+  }
+}
+
+.btn-move {
+  background-color: #eb6338;
+  color: #ffffff;
+  border-radius: 0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #6c60a3 !important;
+}
+
+.wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .item {
+    margin-right: 5px;
+    .num {
+      width:auto !important;
+    }
+  }
+
+}
+
+::ng-deep {
+  .num {
+    .mat-mdc-text-field-wrapper {
+      width: 70px;
+    }
+  }
+}
