@@ -17,113 +17,129 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="card">
                 <div class="card-body">
-                    <div class="addIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#767676"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>&nbsp;</p>
-                            <p>&nbsp;</p>
+                    <div *ngIf="!addQuestion">
+                        <div class="addIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#767676">
+                                <path
+                                    d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
                         </div>
-                    </div>
-                    <mat-divider></mat-divider>
-                    <div class="row mt-4">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="wrap">
-                                        <div class="item"> Select Rating Style: </div>
-                                        <div class="item">
-                                            <mat-form-field appearance="outline">
-                                                <mat-label> Slider</mat-label>
-                                                <mat-select>
-                                                    @for (slide of slides; track slide) {
-                                                    <mat-option [value]="slide.value">{{slide.viewValue}}</mat-option>
-                                                    }
-                                                </mat-select>
-                                            </mat-form-field>
+                        <div class="row">
+                            <div class="col">
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="wrap">
+                                            <div class="item"> Select Rating Style: </div>
+                                            <div class="item">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label> Rating</mat-label>
+                                                    <mat-select>
+                                                        @for (rating of ratings; track rating) {
+                                                        <mat-option
+                                                            [value]="rating.value">{{rating.viewValue}}</mat-option>
+                                                        }
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="wrap">
-                                <div class="item">
-                                    Set Rating Range:
-                                </div>
-                                <div class="item num">
-                                    <mat-form-field appearance="outline">
-                                        <input matInput type="number" placeholder="0" value="0" max="10">
-                                    </mat-form-field>
-                                </div>
-                                <div class="item">to</div>
-                                <div class="item">
-                                    <mat-form-field appearance="outline" class="num">
-                                        <input matInput type="number" placeholder="10" value="10" max="10">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col ratingOps">
-                            <ol start="4" reversed>
-                                <li>Strongly Agree</li>
-                                <li>Strongly Disagree</li>
-                                <li>Neutral</li>
-                                <li>Disagree</li>
-                                <li>Strongly Disagree</li>
-                            </ol>
-                        </div>
-                        <div class="col"></div>
-                        <div class="col"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="wrap">
-                                <div class="item">
-                                    <p>Do you want the response to this question to act a metric?</p>
-                                </div>
-                                <div class="item">
-                                    <mat-slide-toggle></mat-slide-toggle>
-                                </div>
-                                <div class="item">
-                                    <mat-form-field appearance="outline">
-                                        <input matInput type="number" placeholder="Choose Metric">
-                                    </mat-form-field>
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrap">
+                                    <div class="item">
+                                        Set Rating Range:
+                                    </div>
+                                    <div class="item num">
+                                        <mat-form-field appearance="outline">
+                                            <input matInput type="number" placeholder="0" value="0" max="10">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="item">to</div>
+                                    <div class="item">
+                                        <mat-form-field appearance="outline" class="num">
+                                            <input matInput type="number" placeholder="10" value="10" max="10">
+                                        </mat-form-field>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <mat-divider></mat-divider>
-                    <div class="row mt-4">
-                        <div class="col">
-                            <div class="wrap">
-                                <div class="item">
-                                    Required
-                                </div>
-                                <div class="item">
-                                    <mat-slide-toggle [(ngModel)]="isRequired"></mat-slide-toggle>
+                        <div class="row">
+                            <div class="col ratingOps">
+                                <ol start="4" reversed>
+                                    <li>Strongly Agree</li>
+                                    <li>Strongly Disagree</li>
+                                    <li>Neutral</li>
+                                    <li>Disagree</li>
+                                    <li>Strongly Disagree</li>
+                                </ol>
+                            </div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrap">
+                                    <div class="item">
+                                        <p>Do you want the response to this question to act a metric?</p>
+                                    </div>
+                                    <div class="item">
+                                        <mat-slide-toggle></mat-slide-toggle>
+                                    </div>
+                                    <div class="item">
+                                        <mat-form-field appearance="outline">
+                                            <input matInput type="number" placeholder="Choose Metric">
+                                        </mat-form-field>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <mat-divider></mat-divider>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <div class="wrap">
+                                    <div class="item">
+                                        Required
+                                    </div>
+                                    <div class="item">
+                                        <mat-slide-toggle [(ngModel)]="isRequired"></mat-slide-toggle>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bottomButton" (click)="addQuestion = true">
+                            <p class="mt-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#e8eaed">
+                                        <path
+                                            d="M520-400h80v-120h120v-80H600v-120h-80v120H400v80h120v120ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" />
+                                    </svg>
+                                </span>
+                                Add Question
+                            </p>
+                        </div>
                     </div>
-                    <div class="row bottomButton">
-                        <p class="mt-2">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M520-400h80v-120h120v-80H600v-120h-80v120H400v80h120v120ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg>
-                            </span>
-                            Add Question</p>
-                    </div>
+                    <!--add question-->
+                    <app-add-question *ngIf="addQuestion"></app-add-question>
+                    <!--End add question-->
                 </div>
             </div>
             <p>&nbsp;</p>
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-move">< Back To Customize</button>
+                    <button type="button" class="btn btn-move" (click)="addQuestion = false">
+                        < Back To Customize</button>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-move float-end">Finish Program ></button>

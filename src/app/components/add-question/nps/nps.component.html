@@ -1,0 +1,17 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input type="text" matInput [formControl]="questionFormControl" placeholder="Ex. pat@example.com">
+      @if (questionFormControl.hasError('email') && !questionFormControl.hasError('required')) {
+        <mat-error>Please enter a valid question</mat-error>
+      }
+    </mat-form-field>
+  </form>
+
+<div class="row">
+    <div class="col">
+        <ul class="rating">
+            <li>10. Strongly Agree</li>
+            <li>0. Strongly Disagree</li>
+        </ul>
+    </div>
+</div>

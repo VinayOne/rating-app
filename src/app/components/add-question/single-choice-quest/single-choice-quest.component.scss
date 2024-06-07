@@ -1,0 +1,23 @@
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .editIcon {
+    margin: 0 0 0 9px;
+    border: 1px solid #767676;
+    padding: 6px 6px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 5px;
+  }
+
+  .editIcon:hover {
+    font-weight: 800;
+    cursor: pointer;
+  }

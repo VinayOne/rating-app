@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-9">
+      <p>&nbsp;</p>
+      <mat-divider></mat-divider>
+  </div>
+  <div class="col-3">
+    <mat-form-field appearance="outline" class="float-end">
+      <mat-label> Question Type</mat-label>
+      <mat-select [(value)]="selected">
+          @for (quesType of quesTypes; track quesType) {
+          <mat-option
+              [value]="quesType.value">{{quesType.viewValue}}</mat-option>
+          }
+      </mat-select>
+  </mat-form-field>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <app-open-ended-quest *ngIf="selected === 'openQues'"></app-open-ended-quest>
+    <app-multiple-choice-quest *ngIf="selected === 'multipleChoice'"></app-multiple-choice-quest>
+    <app-single-choice-quest *ngIf="selected === 'singleChoice'"></app-single-choice-quest>
+    <app-nps *ngIf="selected === 'nps'"></app-nps>
+  </div>
+</div>
