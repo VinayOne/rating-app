@@ -16,7 +16,7 @@ interface Rating {
 })
 export class QuestionComponent {
   isRequired: boolean = true;
-  addQuestion: boolean = true;
+  addQuestion: boolean = false;
 
   ratings: Rating[] = [
     {value: 'slider', viewValue: 'Slider'},
