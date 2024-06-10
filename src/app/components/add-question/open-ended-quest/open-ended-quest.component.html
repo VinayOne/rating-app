@@ -1,6 +1,25 @@
-<form class="example-form">
-<mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Type your question</mat-label>
-    <textarea matInput placeholder="Ex. How about this job?"></textarea>
-  </mat-form-field>
-</form>
+<div class="row">
+  <div class="col">
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Type your question</mat-label>
+        <textarea matInput #question value="How about your experience?"></textarea>
+      </mat-form-field>
+    </form>
+    <div class="rating" *ngIf="ratingDone">
+      <p><strong>Thanks for your rating!</strong></p>
+      <p>Question: {{questionAsked}}</p>
+      <p>Rating: {{ratingReceived}}</p>
+    </div>
+  </div>
+  <div class="col ratingOps">
+    <p>Please rate this question.</p>
+    <ul>
+      @for (rate of ratingOptions; track rate; let inx = $index) {
+      <li (click)="showRating(question.value, rate.ratingValue)"><span
+          *ngIf="ratingStyle === 'smiley'">{{rate.smiley}}</span><span
+          *ngIf="ratingStyle === 'slider'">{{rate.num}}</span>&nbsp;&nbsp; {{rate.ratingValue}}</li>
+      }
+    </ul>
+  </div>
+</div>

@@ -1,12 +1,33 @@
-<section class="example-section" [formGroup]="questions">
-    <h4>Select your questions:</h4>
-    <p><mat-checkbox formControlName="question_1">Question 1</mat-checkbox></p>
-    <p><mat-checkbox formControlName="question_2">Question 2</mat-checkbox></p>
-    <p><mat-checkbox formControlName="question_3">Question 3</mat-checkbox></p>
-    <p><mat-checkbox formControlName="question_4">Question 4</mat-checkbox></p>
-  </section>
-  
-  <section class="example-section" [formGroup]="questions">
-    <h4>You selected:</h4>
-    {{questions.value | json}}
-  </section>
+<div class="row">
+  <div class="col">
+    <section class="example-section" [formGroup]="questions" #question>
+      <h4>Select your questions:</h4>
+      <p><mat-checkbox formControlName="question_1">Question 1</mat-checkbox></p>
+      <p><mat-checkbox formControlName="question_2">Question 2</mat-checkbox></p>
+      <p><mat-checkbox formControlName="question_3">Question 3</mat-checkbox></p>
+      <p><mat-checkbox formControlName="question_4">Question 4</mat-checkbox></p>
+    </section>
+
+    <section class="example-section" [formGroup]="questions">
+      <h4>You selected:</h4>
+      {{questions.value | json}}
+    </section>
+  </div>
+  <div class="col">
+    <div class="col ratingOps">
+      <p>Please rate this question.</p>
+      <ul>
+        @for (rate of ratingOptions; track rate; let inx = $index) {
+        <li (click)="showRating(rate.ratingValue)"><span *ngIf="ratingStyle === 'smiley'">{{rate.smiley}}</span><span
+            *ngIf="ratingStyle === 'slider'">{{rate.num}}</span>&nbsp;&nbsp; {{rate.ratingValue}}</li>
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="col">
+    <div class="rating" *ngIf="ratingDone">
+      <p><strong>Thanks for your rating!</strong></p>
+      <p>You've rated: {{ratingReceived}}</p>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MaterialModule } from '../../modules/material/material.module';
 import { OpenEndedQuestComponent } from './open-ended-quest/open-ended-quest.component';
 import { MultipleChoiceQuestComponent } from './multiple-choice-quest/multiple-choice-quest.component';
@@ -30,6 +30,8 @@ export interface QuesType {
   styleUrl: './add-question.component.scss'
 })
 export class AddQuestionComponent {
+  @Input() ratingData: any;
+
   selected = 'openQues';
 
   quesTypes: QuesType[] = [

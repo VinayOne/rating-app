@@ -27,8 +27,12 @@
       color: #ffffff;
     }
   }
-  .ratingOps > ol > li {
-    border-bottom: 1px solid #d0d0d0;
+
+  .ratingOps > ul {
+    list-style-type: none;
+  }
+
+  .ratingOps > ul > li {
     margin-bottom: 30px;
   }
 

@@ -41,7 +41,7 @@
                                             <div class="item">
                                                 <mat-form-field appearance="outline">
                                                     <mat-label> Rating</mat-label>
-                                                    <mat-select>
+                                                    <mat-select [(value)]="rateSelected">
                                                         @for (rating of ratings; track rating) {
                                                         <mat-option
                                                             [value]="rating.value">{{rating.viewValue}}</mat-option>
@@ -62,27 +62,31 @@
                                     </div>
                                     <div class="item num">
                                         <mat-form-field appearance="outline">
-                                            <input matInput type="number" placeholder="0" value="0" max="10">
+                                            <input matInput type="number" #firstVal value="0" min="0" max="1">
                                         </mat-form-field>
                                     </div>
                                     <div class="item">to</div>
                                     <div class="item">
                                         <mat-form-field appearance="outline" class="num">
-                                            <input matInput type="number" placeholder="10" value="10" max="10">
+                                            <input matInput type="number" #SecondVal value="5" min="4" max="10">
                                         </mat-form-field>
+                                    </div>
+                                    <div class="item">
+                                        <button type="button" class="btn btn-primary" (click)="setRating(SecondVal.value)">Set</button>
+                                    </div>
+                                    <div class="item">
+                                        <p>(Set second value to 4, 5 or 10)</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col ratingOps">
-                                <ol start="4" reversed>
-                                    <li>Strongly Agree</li>
-                                    <li>Strongly Disagree</li>
-                                    <li>Neutral</li>
-                                    <li>Disagree</li>
-                                    <li>Strongly Disagree</li>
-                                </ol>
+                                <ul>
+                                    @for (rate of ratingOptions; track rate) {
+                                    <li><span *ngIf="rateSelected === 'smiley'">{{rate.smiley}}</span><span *ngIf="rateSelected === 'slider'">{{rate.num}}</span>&nbsp;&nbsp; {{rate.ratingValue}}</li>
+                                    }
+                                </ul>
                             </div>
                             <div class="col"></div>
                             <div class="col"></div>
@@ -117,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row bottomButton" (click)="addQuestion = true">
+                        <div class="row bottomButton" (click)="setRatingData()">
                             <p class="mt-2">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -131,7 +135,7 @@
                         </div>
                     </div>
                     <!--add question-->
-                    <app-add-question *ngIf="addQuestion"></app-add-question>
+                    <app-add-question *ngIf="addQuestion" [ratingData]="ratingData"></app-add-question>
                     <!--End add question-->
                 </div>
             </div>

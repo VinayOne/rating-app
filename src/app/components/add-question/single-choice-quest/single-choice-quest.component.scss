@@ -21,3 +21,16 @@
     font-weight: 800;
     cursor: pointer;
   }
+
+  .ratingOps > ul {
+    list-style-type: none;
+  }
+
+  .ratingOps > ul > li {
+    margin-bottom: 30px;
+  }
+
+  .ratingOps > ul > li:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }

@@ -1,17 +1,28 @@
 <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <input type="text" matInput [formControl]="questionFormControl" placeholder="Ex. pat@example.com">
-      @if (questionFormControl.hasError('email') && !questionFormControl.hasError('required')) {
-        <mat-error>Please enter a valid question</mat-error>
-      }
-    </mat-form-field>
-  </form>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <input type="text" matInput [formControl]="questionFormControl" placeholder="Ex. pat@example.com">
+    @if (questionFormControl.hasError('email') && !questionFormControl.hasError('required')) {
+    <mat-error>Please enter a valid question</mat-error>
+    }
+  </mat-form-field>
+</form>
 
 <div class="row">
-    <div class="col">
-        <ul class="rating">
-            <li>10. Strongly Agree</li>
-            <li>0. Strongly Disagree</li>
-        </ul>
+  <div class="col">
+    <div class="col ratingOps">
+      <p>Please rate this question.</p>
+      <ul>
+        @for (rate of ratingOptions; track rate; let inx = $index) {
+        <li (click)="showRating(rate.ratingValue)"><span *ngIf="ratingStyle === 'smiley'">{{rate.smiley}}</span><span
+            *ngIf="ratingStyle === 'slider'">{{rate.num}}</span>&nbsp;&nbsp; {{rate.ratingValue}}</li>
+        }
+      </ul>
     </div>
+  </div>
+  <div class="col">
+    <div class="rating" *ngIf="ratingDone">
+      <p><strong>Thanks for your rating!</strong></p>
+      <p>You've rated: {{ratingReceived}}</p>
+    </div>
+  </div>
 </div>

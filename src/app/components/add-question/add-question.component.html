@@ -17,9 +17,9 @@
 </div>
 <div class="row">
   <div class="col">
-    <app-open-ended-quest *ngIf="selected === 'openQues'"></app-open-ended-quest>
-    <app-multiple-choice-quest *ngIf="selected === 'multipleChoice'"></app-multiple-choice-quest>
-    <app-single-choice-quest *ngIf="selected === 'singleChoice'"></app-single-choice-quest>
-    <app-nps *ngIf="selected === 'nps'"></app-nps>
+    <app-open-ended-quest *ngIf="selected === 'openQues'" [ratingData]="ratingData"></app-open-ended-quest>
+    <app-multiple-choice-quest *ngIf="selected === 'multipleChoice'" [ratingData]="ratingData"></app-multiple-choice-quest>
+    <app-single-choice-quest *ngIf="selected === 'singleChoice'" [ratingData]="ratingData"></app-single-choice-quest>
+    <app-nps *ngIf="selected === 'nps'" [ratingData]="ratingData"></app-nps>
   </div>
 </div>
